@@ -3,7 +3,7 @@ from tkinter import font
 
 root = Tk()
 root.title('DSEditor')
-root.iconbitmap('/Users/daksh/Downloads/Notion_app_logo.png')
+root.iconbitmap('/Users/Downloads/Notion_app_logo.png')
 root.geometry("900x490")
 
 global open_status_name
@@ -18,7 +18,7 @@ def new_file():
 
 def open_file():
     my_text.delete('1.0', END)
-    text_file = filedialog.askopenfilename(initialdir='/Users/daksh/Desktop', title='Open File', filetypes=(('Text Files', '*.txt'), ('HTML Files', '*.html'), ('Python Files', '*.py'), ('All files', '*.*')))
+    text_file = filedialog.askopenfilename(initialdir='/Users/Desktop', title='Open File', filetypes=(('Text Files', '*.txt'), ('HTML Files', '*.html'), ('Python Files', '*.py'), ('All files', '*.*')))
     if text_file:   
         global open_status_name
         open_status_name = text_file
@@ -45,13 +45,13 @@ def open_file():
 
 
 def save_as_file():
-    text_file = filedialog.asksaveasfilename(defaultextension='.*', initialdir='/Users/daksh/Desktop', filetypes=(('Text Files', '*.txt'), ('HTML Files', '*.html'), ('Python Files', '*.py'), ('All files', '*.*')))
+    text_file = filedialog.asksaveasfilename(defaultextension='.*', initialdir='/Users/Desktop', filetypes=(('Text Files', '*.txt'), ('HTML Files', '*.html'), ('Python Files', '*.py'), ('All files', '*.*')))
     if text_file:
         name = text_file
         global open_status_name
         open_status_name = text_file
         status_bar.config(text=f'Saved as - {name}')
-        name = name.replace('/Users/daksh/Desktop/', '')
+        name = name.replace('/Users/Desktop/', '')
         root.title(f'{name}')
         text_file = open(text_file, 'w')
         text_file.write(my_text.get(1.0, END))
