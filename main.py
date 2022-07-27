@@ -24,7 +24,7 @@ def open_file():
         open_status_name = text_file
     name = text_file
     status_bar.config(text=name)
-    name = name.replace("/Users/daksh/Desktop/", "")
+    name = name.replace("/Users/Desktop/", "")
     root.title(f'{name}')
 
     text_file = open(text_file, 'r')
