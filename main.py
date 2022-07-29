@@ -33,15 +33,18 @@ def open_file():
     my_text.insert(END, stuff)
     text_file.close()
 
-**def bold_it():
+def bold_it():
     bold_font = font.Font(my_text, my_text.cget('font'))
     bold_font.configure(weight='bold')
     my_text.tag_configure('bold', font=bold_font)
-    current_tags = my_text.tag_names("sel.first")
-    if 'bold' in current_tags:
-        my_text.tag_remove('bold', "sel.first", "sel.last")
-    else:
-        my_text.tag_add('bold', "sel.first", "sel.last")**
+    try:
+        current_tags = my_text.tag_names("sel.first")
+        if 'bold' in current_tags:
+            my_text.tag_remove('bold', "sel.first", "sel.last")
+        else:
+            my_text.tag_add('bold', "sel.first", "sel.last")
+    except:
+        pass
 
 
 def save_as_file():
